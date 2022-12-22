@@ -24,7 +24,7 @@ ip addr
  <hr>
 
 ```
-nano /etc/network/interface
+nano /etc/network/interfaces
 
 ```
 **Alteração de arquivo**
@@ -202,17 +202,32 @@ apt install bind9 bind9-doc dnsutils -y
 
 apt install apache2 apache2-doc -y
 ```
-
-### Em seguida editaremos o arquivo de interface
-
-```
-nano /etc/network/interface
-
-```
 ### Exibir configuração de rede
+
+**Configuração do apache2**
+
+```
+nano /etc/apache2/conf_available/security.conf
+```
+**Iremos Desmarcar**
+```
+ServerTokens os
+ServerTokens Prod
+ServerSigature off
+ServerSignature off
+```
+
+### Mostrar ip
 
 ```
 ip addr
+
+```
+
+### Em seguida editaremos o arquivo de interfaces
+
+```
+nano /etc/network/interfaces
 
 ```
 
@@ -225,27 +240,6 @@ iface enp0s3 inet static
     gateway x.x.x.x #ip 1
     network x.x.x.x #ip 0
     broadcast x.x.x.x #ip 63
-```
-
-### Comando de configuração de ssh
-
-```
-nano /etc/ssh/sshd_config
-```
-
-### Iremos desmarcar algumas coisas
-
-```
-#Port 22
-#ListenAddress 192.168.1.2
-#PermitRootLogin prohibit-password
-#PermitEmptyPasswords no
-
-```
-### Agora iremos reiniciar 
-
-```
-systemctl reboot
 ```
 
 ### Putty
@@ -261,7 +255,7 @@ Visit https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 Visit https://drive.google.com/file/d/1khRr6PvrTKNdUpjRh51IWll0JvOdV0iw/view
 
-### Ainda no Putty
+### No Putty
 
 ```
 nano /etc/bind/named.conf.local
@@ -275,13 +269,13 @@ zone "agronet.com"{
     file "/etc/bind/db.agronet.com";
 };
 
-#O ip e Interveso
 
 zone "1.168.192.in-addr.arpa"{
     type master;
     file "/etc/bind/db.1.168.192";
 };
 ```
+## 3 passo
 ```
 nano /etc/bind/db.agronet.com
 ```
@@ -359,4 +353,35 @@ nameserver 192.168.1.2
 nslookup agronet.com
 nslookup ns.agronet.com
 nslookup 192.168.1.2
+```
+### Iremos voltar no ip reverso para adicionar algumas coisas
+
+```
+nano /etc/bind/db.1.168.192
+```
+
+**Iremos adicionar e ordenar**
+
+```
+2       PTR     agronet.agronet.com.
+2       PTR     ns.agronet.com.
+2       PTR     mail.agronet.com.
+2       PTR     ftp.agronet.com.
+2       PTR     www.agronet.com.
+1       PTR     router.agronet.com.
+
+```
+
+### Iremos voltar no agronet para adicionar algumas coisas
+
+```
+nano /etc/bind/db.agronet.com
+```
+
+**iremos adicionar algumas coisas**
+```
+server      A       192.168.1.2
+
+ftp         CNAME      server
+www         CNAME      server
 ```
