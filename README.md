@@ -206,10 +206,9 @@ nano /etc/apache2/conf_available/security.conf
 ```
 **Iremos Desmarcar**
 ```
-ServerTokens os
+ServerTokens Os
 ServerTokens Prod
 ServerSigature off
-ServerSignature off
 ```
 
 ### Mostrar ip
@@ -247,7 +246,6 @@ nano /etc/ssh/sshd_config
 
 ```mermaid
 Port 22
-#AddressFamily any
 ListenAddress x.x.x.x
 
 PermitootLogin prohibit-password
