@@ -238,6 +238,32 @@ iface enp0s3 inet static
     network x.x.x.x #ip 0
     broadcast x.x.x.x #ip 63
 ```
+### Configurando o ssh
+
+```
+nano /etc/ssh/sshd_config
+
+```
+
+**Alteração de arquivo**
+
+```mermaid
+Port 22
+#AddressFamily any
+ListenAddress x.x.x.x
+
+PermitootLogin prohibit-password
+
+PermitEmptyPasswords no
+```
+
+**Depois reiniciar**
+
+```
+systemctl reboot
+```
+
+Agora var em dispositivos, rede, configuração de rede e mude em "Conectado" de NAT para Placa em modo bridge
 
 ### Putty
 
@@ -246,11 +272,7 @@ iface enp0s3 inet static
 Visit https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 
-### Iremos configurar a rede da maquina
-
-**Vídeo de demostração (Configuração)**
-
-Visit https://drive.google.com/file/d/1khRr6PvrTKNdUpjRh51IWll0JvOdV0iw/view
+depois que baixar o putty e entrar...
 
 ### No Putty
 
@@ -272,7 +294,7 @@ zone "1.168.192.in-addr.arpa"{
     file "/etc/bind/db.1.168.192";
 };
 ```
-## 3 passo
+## Logo em Seguida
 ```
 nano /etc/bind/db.agronet.com
 ```
