@@ -3,10 +3,7 @@
  # COMANDOS DE CONFIGURAÇÃO DE SERVIDOR
 
  </center>
-
- ### Professor: Karl 
- ### Disciplina: Rede
-
+ 
 <hr>
 
    * [Tutorial](#tutorial)
