@@ -375,16 +375,11 @@ nslookup 192.168.1.2
 nano /etc/bind/db.1.168.192
 ```
 
-**Iremos adicionar e ordenar**
+**Iremos adicionar**
 
 ```
-2       PTR     agronet.agronet.com.
-2       PTR     ns.agronet.com.
-2       PTR     mail.agronet.com.
 2       PTR     ftp.agronet.com.
 2       PTR     www.agronet.com.
-1       PTR     router.agronet.com.
-
 ```
 
 ### Iremos voltar no agronet para adicionar algumas coisas
