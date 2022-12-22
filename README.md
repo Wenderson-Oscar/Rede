@@ -199,8 +199,6 @@ apt install bind9 bind9-doc dnsutils -y
 
 apt install apache2 apache2-doc -y
 ```
-### Exibir configuração de rede
-
 **Configuração do apache2**
 
 ```
