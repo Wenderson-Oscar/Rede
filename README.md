@@ -236,11 +236,11 @@ nano /etc/ssh/sshd_config
 
 ```
 
-**Alteração de arquivo**
+**Iremos Desmarcar**
 
 ```mermaid
 Port 22
-ListenAddress x.x.x.x
+ListenAddress x.x.x.x <-- aqui colocaremos o ip
 
 PermitootLogin prohibit-password
 
