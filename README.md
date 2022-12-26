@@ -55,12 +55,12 @@ nano /etc/ssh/sshd_config
 
 ```
 
-**Alteração de arquivo**
+**Iremos Desmarcar**
 
 ```mermaid
 Port 22
 #AddressFamily any
-ListenAddress x.x.x.x
+ListenAddress x.x.x.x <-- aqui coloque o ip
 
 PermitootLogin prohibit-password
 
@@ -81,12 +81,6 @@ systemctl restart ssh
 Visit https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 <br>
-
-**Vídeo de demostração (Configuração)**
-
-Visit https://drive.google.com/file/d/1khRr6PvrTKNdUpjRh51IWll0JvOdV0iw/view
-
-<hr>
 
 ### Já quando estiver tendo acesso remoto pelo servidor
 
